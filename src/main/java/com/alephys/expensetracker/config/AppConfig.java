@@ -14,11 +14,7 @@ public class AppConfig {
 
 	 @Bean
 	     ModelMapper modelMapper() {
-	        ModelMapper modelMapper = new ModelMapper();
-	        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-	        return modelMapper;
+	        return new ModelMapper();
 	    }
-
-	 
 	
 }

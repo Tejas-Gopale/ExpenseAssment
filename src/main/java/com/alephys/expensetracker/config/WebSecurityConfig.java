@@ -28,7 +28,7 @@ public class WebSecurityConfig {
 		httpSecurity
 			.authorizeHttpRequests(auth -> 
 					auth
-					.requestMatchers("/auth/v1/**","/api/expenses/**")
+					.requestMatchers("/auth/v1/**","/api/expenses/**","/v3/api-docs","/v2/api-docs", "/swagger-ui/**", "/swagger-resources/**", "/webjars/**")
 					.permitAll()
 					.anyRequest().authenticated())
 					.csrf(csrfconfig -> csrfconfig.disable())

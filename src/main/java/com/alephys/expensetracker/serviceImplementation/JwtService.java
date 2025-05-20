@@ -23,9 +23,7 @@ public class JwtService {
     @Value("${jwt.accessTokenExpiration}")
     private long accessTokenExpiration; // in minutes
 
-    @Value("${jwt.refreshTokenExpiration}")
-    private long refreshTokenExpiration; // in hours
-
+  
     private SecretKey getSecretKey() {
         // Use Base64 decoding if you base64-encoded your secret, otherwise use:
         return Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));

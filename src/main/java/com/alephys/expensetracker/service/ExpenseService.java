@@ -10,13 +10,10 @@ import com.alephys.expensetracker.enums.TransactionType;
 
 public interface ExpenseService {
 
-	void addTransaction(String email, TransactionType type, String category, BigDecimal amount, LocalDate parse);
+	void addTransaction(TransactionType type, String category, BigDecimal amount, LocalDate parse);
 
-	public Map<String, BigDecimal> getMonthlySummary(String email, int year, int month);
-
-	//void loadFromFile(File temp) throws IOException;
+	public Map<String, BigDecimal> getMonthlySummary(int year, int month);
 
 	void loadFromExcelFile(File temp) throws IOException;
 
-//	void registerUser(String email, String password);;
 }

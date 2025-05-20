@@ -46,7 +46,7 @@ public class ExpenseServiceImplementation implements ExpenseService {
     	    }
     
 	@Override
-	public void addTransaction(String email, TransactionType type, String category, BigDecimal amount,
+	public void addTransaction(TransactionType type, String category, BigDecimal amount,
 			LocalDate parse) {
 		User user = getAuthenticatedUser();
 		
@@ -61,7 +61,7 @@ public class ExpenseServiceImplementation implements ExpenseService {
 	}
 
 	@Override
-	public Map<String, BigDecimal> getMonthlySummary(String email, int year, int month) {
+	public Map<String, BigDecimal> getMonthlySummary(int year, int month) {
 		User user = getAuthenticatedUser();
 		        LocalDate start = LocalDate.of(year, month, 1);
 		        LocalDate end = start.withDayOfMonth(start.lengthOfMonth());
@@ -84,17 +84,17 @@ User user = getAuthenticatedUser();
             for (Row row : sheet) {
 
             	if(row.getRowNum() == 0) continue;
-            	String userEmail = row.getCell(0).getStringCellValue();
-            			log.info(":"+row.getCell(0).toString());
-            	            String type = row.getCell(1).getStringCellValue();
-            	            String category = row.getCell(2).getStringCellValue();
-            	            BigDecimal amount = new BigDecimal(row.getCell(3).getNumericCellValue());
-            	           LocalDate date = row.getCell(4).getLocalDateTimeCellValue().toLocalDate();
+            	//String userEmail = row.getCell(0).getStringCellValue();
+            		///	log.info(":"+row.getCell(0).toString());
+            	            String type = row.getCell(0).getStringCellValue();
+            	            String category = row.getCell(1).getStringCellValue();
+            	            BigDecimal amount = new BigDecimal(row.getCell(2).getNumericCellValue());
+            	           LocalDate date = row.getCell(3).getLocalDateTimeCellValue().toLocalDate();
                 
-            	           addTransaction(userEmail, TransactionType.valueOf(type.toUpperCase()), category, amount, date);
+            	           addTransaction(TransactionType.valueOf(type.toUpperCase()), category, amount, date);
             }
         }
-	}
+	}	
 
 	
 }

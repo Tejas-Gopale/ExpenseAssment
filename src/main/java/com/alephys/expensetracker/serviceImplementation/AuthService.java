@@ -21,7 +21,6 @@ import com.alephys.expensetracker.entity.User;
 import com.alephys.expensetracker.exceptions.ResourceNotFoundException;
 import com.alephys.expensetracker.exceptions.UserAlreadyExistsException;
 import com.alephys.expensetracker.repository.UsersRepository;
-import com.alephys.expensetracker.service.CustomUserDetailsService;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

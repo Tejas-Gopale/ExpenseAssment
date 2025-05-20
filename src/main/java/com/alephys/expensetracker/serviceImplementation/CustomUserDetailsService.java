@@ -1,4 +1,4 @@
-package com.alephys.expensetracker.service;
+package com.alephys.expensetracker.serviceImplementation;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

@@ -12,7 +12,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import com.alephys.expensetracker.entity.User;
-import com.alephys.expensetracker.service.CustomUserDetailsService;
+import com.alephys.expensetracker.serviceImplementation.CustomUserDetailsService;
 import com.alephys.expensetracker.serviceImplementation.JwtService;
 
 import jakarta.servlet.FilterChain;

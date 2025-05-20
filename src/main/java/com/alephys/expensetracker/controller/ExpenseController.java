@@ -29,20 +29,18 @@ public class ExpenseController {
 	private  ExpenseService service;
 	
 	@PostMapping("/add")
-    public ResponseEntity<String> add(@RequestParam String email,
-                                      @RequestParam TransactionType type,
+    public ResponseEntity<String> add(@RequestParam TransactionType type,
                                       @RequestParam String category,
                                       @RequestParam BigDecimal amount,
                                       @RequestParam String date) {
-        service.addTransaction(email, type, category, amount, LocalDate.parse(date));
+        service.addTransaction(type, category, amount, LocalDate.parse(date));
         return ResponseEntity.ok("Transaction added.");
     }
 
     @GetMapping("/summary")
-    public ResponseEntity<Map<String, BigDecimal>> summary(@RequestParam String email,
-                                                            @RequestParam int year,
+    public ResponseEntity<Map<String, BigDecimal>> summary( @RequestParam int year,
                                                             @RequestParam int month) {
-        return ResponseEntity.ok(service.getMonthlySummary(email, year, month));
+        return ResponseEntity.ok(service.getMonthlySummary( year, month));
     }
 
     @PostMapping("/upload")
